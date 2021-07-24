@@ -15,6 +15,24 @@ class MyApp extends StatelessWidget {
         .play('assets/sounds/note$soundNum.wav'); // passing soundNum parameter
   }
 
+  Expanded buildKey({required Color color, required int soundNumber}) {
+    return Expanded(
+      child: Container( 
+        child: TextButton(
+          onPressed: () {
+            playSound(soundNumber);
+          },
+          child: Text(
+            "Note 1",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,103 +45,12 @@ class MyApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
-                  color: Colors.red,
-                  width: 500.0,
-                  height: 50.0,
-                  child: TextButton(
-                    onPressed: () {
-                      playSound(1);
-                    },
-                    child: Text(
-                      "Note 1",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.orange,
-                  width: 500.0,
-                  height: 50.0,
-                  child: TextButton(
-                    onPressed: () {
-                      playSound(2);
-                    },
-                    child: Text(
-                      "Note 2",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.green,
-                  width: 500.0,
-                  height: 50.0,
-                  child: TextButton(
-                    onPressed: () {
-                      playSound(3);
-                    },
-                    child: Text(
-                      "Note 3",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.blue,
-                  width: 500.0,
-                  height: 50.0,
-                  child: TextButton(
-                    onPressed: () {
-                      playSound(4);
-                    },
-                    child: Text(
-                      "Note 4",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.deepPurple,
-                  width: 500.0,
-                  height: 50.0,
-                  child: TextButton(
-                    onPressed: () {
-                      playSound(5);
-                    },
-                    child: Text(
-                      "Note 5",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.brown,
-                  width: 500.0,
-                  height: 50.0,
-                  child: TextButton(
-                    onPressed: () {
-                      playSound(
-                          6); // passing integer value for soundNum parameter
-                    },
-                    child: Text(
-                      "Note 6",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
+                buildKey(color: Colors.red, soundNumber: 1), // red
+                buildKey(color: Colors.orange, soundNumber: 2), // red
+                buildKey(color: Colors.yellow, soundNumber: 3), // red
+                buildKey(color: Colors.green, soundNumber: 4), // red
+                buildKey(color: Colors.brown, soundNumber: 5), // red
+                buildKey(color: Colors.deepPurple, soundNumber: 6), // red
               ],
             ),
           ),
